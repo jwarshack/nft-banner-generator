@@ -3,7 +3,8 @@ import './App.css';
 import figlet from 'figlet';
 import Standard from 'figlet/importable-fonts/Standard'
 import Basic from 'figlet/importable-fonts/Basic'
-import Banner from 'figlet/importable-fonts/Banner';
+import Coinstak from 'figlet/importable-fonts/Coinstak';
+import Doh from 'figlet/importable-fonts/Doh'
 
 import { FaRegCopy } from 'react-icons/fa'
 import "98.css";
@@ -18,7 +19,9 @@ function App() {
   const fonts = [
     {name: "Standard", font: Standard},
     {name: "Basic", font: Basic},
-    {name: "Banner", font: Banner},
+    {name: "Coinstak", font: Coinstak},
+    {name: "Doh", font: Doh},
+
 
 
 
