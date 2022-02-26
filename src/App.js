@@ -5,6 +5,11 @@ import Standard from 'figlet/importable-fonts/Standard'
 import Basic from 'figlet/importable-fonts/Basic'
 import Coinstak from 'figlet/importable-fonts/Coinstak';
 import Cosmike from 'figlet/importable-fonts/Cosmike'
+import ThreeD from 'figlet/importable-fonts/3-D'
+import Aligator2 from 'figlet/importable-fonts/Alligator2'
+import Nancyj from 'figlet/importable-fonts/Nancyj'
+import Puffy from 'figlet/importable-fonts/Puffy'
+import Rectangles from 'figlet/importable-fonts/Rectangles'
 
 import { FaRegCopy } from 'react-icons/fa'
 import "98.css";
@@ -12,7 +17,7 @@ import "98.css";
 
 
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 
 function App() {
@@ -21,11 +26,16 @@ function App() {
     {name: "Basic", font: Basic},
     {name: "Coinstak", font: Coinstak},
     {name: "Cosmike", font: Cosmike},
+    {name: "3-D", font: ThreeD},
+    {name: "Alligator2", font: Aligator2},
+    {name: "NancyJ", font: Nancyj},
+    {name: "Puffy", font: Puffy},
+    {name: "Rectangles", font: Rectangles},
 
+  ]
 
-
-
-
+  const underline = [
+    {name: 'CryptoCoven', underline: ".・。.・゜✭・.・✫・゜・。..・。.・゜✭・.・✫・゜・。.✭・.・✫・゜・。..・✫・゜・。.・。.・゜✭・.・✫・゜・。..・。.・゜✭・.・✫・゜・。.✭・.・✫・゜・"}
   ]
 
   const [banner, setBanner] = useState()
@@ -137,7 +147,4 @@ function App() {
 }
 
 export default App;
-
-
-
 
