@@ -42,7 +42,7 @@ function App() {
   const [textToGenerate, setTextToGenerate] = useState()
   const [minimized, setMinimized] = useState(false)
   const [selectedFont, setSelectedFont] = useState(0)
-  const [zoom, setZoom] = useState('11')
+  const [zoom, setZoom] = useState('5')
 
 
   function toggleWindow() {
@@ -71,7 +71,7 @@ function App() {
     <div className='container'>
       {
         minimized ?
-        <div className='window' style={{width: '50%'}}>
+        <div className='window' style={{width: '56%'}}>
           <div className='title-bar'>
             <div className='title-bar-text'>Ooops..</div>
             <div className="title-bar-controls">
@@ -84,7 +84,7 @@ function App() {
 
         </div>
         :
-        <div className='window' style={{width: '50%'}}>
+        <div className='window' >
           <div className='title-bar'>
             <div className='title-bar-text'>NFT Banner Generator</div>
             <div className="title-bar-controls">
@@ -95,24 +95,15 @@ function App() {
           </div>
           <div className='window-body' style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
 
-            <textarea 
-              type="text" 
-              value={banner} 
-              readOnly={true} 
-              disabled={true} 
-              style={{width: "500px", height: "auto", fontSize: `${zoom}px`,  fontFamily: 'sans-serif', textAlign:"center", paddingTop: "40px", margin: "0px", resize: "none", width: "100%", maxHeight: "400px", margin: "auto", letterSpacing: "normal"}}
-              rows="20" 
-            >
-
-            </textarea>
-
-
+            <pre style={{width: "90%", fontSize: `${zoom}px`, minHeight: "100px", whiteSpace: 'break-spaces' }}>
+              {banner}
+            </pre>
             <div style={{display: "flex", alignItems: "center"}}>
               <input
                 type="range"
                 style={{margin: "20px"}}
                 min="10"
-                max="30"
+                max="20"
                 value={zoom}
                 onChange={(e) => setZoom(e.target.value)}
               />
