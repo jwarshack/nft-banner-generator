@@ -102,7 +102,7 @@ function App() {
               <input
                 type="range"
                 style={{margin: "20px"}}
-                min="10"
+                min="5"
                 max="20"
                 value={zoom}
                 onChange={(e) => setZoom(e.target.value)}
