@@ -29,8 +29,8 @@ function App() {
   const [textToGenerate, setTextToGenerate] = useState()
   const [minimized, setMinimized] = useState(false)
   const [selectedFont, setSelectedFont] = useState(0)
+  const [zoom, setZoom] = useState('11')
 
-  const displayRef = useRef()
 
   function toggleWindow() {
     const prevValue = minimized
@@ -49,9 +49,6 @@ function App() {
      function(err, text) {
        console.log(err)
       setBanner(text)
-      console.log(displayRef.current)
-      displayRef.current.style.height = 'inherit'
-      displayRef.current.style.height = `${displayRef.current.scrollHeight}px`
 
     });
  
@@ -87,11 +84,10 @@ function App() {
 
             <textarea 
               type="text" 
-              ref={displayRef} 
               value={banner} 
               readOnly={true} 
               disabled={true} 
-              style={{width: "500px", height: "auto", fontFamily: 'sans-serif', textAlign:"center", paddingTop: "40px", margin: "0px", resize: "none", width: "100%", maxHeight: "400px", margin: "auto"}}
+              style={{width: "500px", height: "auto", fontSize: `${zoom}px`,  fontFamily: 'sans-serif', textAlign:"center", paddingTop: "40px", margin: "0px", resize: "none", width: "100%", maxHeight: "400px", margin: "auto", letterSpacing: "normal"}}
               rows="20" 
             >
 
@@ -104,8 +100,8 @@ function App() {
                 style={{margin: "20px"}}
                 min="10"
                 max="30"
-                value="11"
-                onChange={(e) => displayRef.current.style.fontSize = `${e.target.value}px`}
+                value={zoom}
+                onChange={(e) => setZoom(e.target.value)}
               />
               <input 
                   type="text" 
@@ -115,13 +111,16 @@ function App() {
               <button onClick={generateText}>Generate</button>
               <button onClick={() => {navigator.clipboard.writeText(banner)}}><FaRegCopy/></button>
             </div>
-            <select value={selectedFont} onChange={e => setSelectedFont(e.target.value)}>
-              {
-                fonts.map((font, key) => (
-                  <option key={key} value={key}>{font.name}</option>
-                ))
-              }
-            </select>
+            <div>
+              <p>Font type:</p>
+              <select value={selectedFont} onChange={e => setSelectedFont(e.target.value)}>
+                {
+                  fonts.map((font, key) => (
+                    <option key={key} value={key}>{font.name}</option>
+                  ))
+                }
+              </select>
+            </div>
           </div>
         </div>
 
@@ -135,3 +134,4 @@ function App() {
 }
 
 export default App;
+

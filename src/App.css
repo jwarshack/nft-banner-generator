@@ -1,6 +1,10 @@
+body {
+    margin: 0;
+}
+
 .container {
+    padding: 20px;
     width: 100%;
-    margin: auto ;
-    height: 500px;
-    margin-top: 20px;
+    height: 100vh;
+    background-color: #008080;
 }
