@@ -4,7 +4,7 @@ import figlet from 'figlet';
 import Standard from 'figlet/importable-fonts/Standard'
 import Basic from 'figlet/importable-fonts/Basic'
 import Coinstak from 'figlet/importable-fonts/Coinstak';
-import Cosmic from 'figlet/importable-fonts/Cosmic'
+import Cosmike from 'figlet/importable-fonts/Cosmike'
 
 import { FaRegCopy } from 'react-icons/fa'
 import "98.css";
@@ -20,7 +20,7 @@ function App() {
     {name: "Standard", font: Standard},
     {name: "Basic", font: Basic},
     {name: "Coinstak", font: Coinstak},
-    {name: "Cosmic", font: Cosmic},
+    {name: "Cosmike", font: Cosmike},
 
 
 
@@ -137,5 +137,7 @@ function App() {
 }
 
 export default App;
+
+
 
 
