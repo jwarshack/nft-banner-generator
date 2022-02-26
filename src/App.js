@@ -11,7 +11,7 @@ import "98.css";
 
 
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 
 function App() {
@@ -28,6 +28,7 @@ function App() {
   const [banner, setBanner] = useState()
   const [textToGenerate, setTextToGenerate] = useState()
   const [minimized, setMinimized] = useState(false)
+  const [selectedFont, setSelectedFont] = useState(0)
 
   const displayRef = useRef()
 
@@ -41,10 +42,10 @@ function App() {
 
 
   function generateText() {
-    figlet.parseFont(fonts[1].name, fonts[1].font);
+    figlet.parseFont(fonts[selectedFont].name, fonts[selectedFont].font);
 
 
-    figlet.text(textToGenerate, fonts[1].name,
+    figlet.text(textToGenerate, fonts[selectedFont].name,
      function(err, text) {
        console.log(err)
       setBanner(text)
@@ -90,7 +91,7 @@ function App() {
               value={banner} 
               readOnly={true} 
               disabled={true} 
-              style={{width: "500px", height: "auto", fontFamily: 'sans-serif', textAlign:"center", padding: "0", margin: "0", resize: "none", width: "100%"}}
+              style={{width: "500px", height: "auto", fontFamily: 'sans-serif', textAlign:"center", paddingTop: "40px", margin: "0px", resize: "none", width: "100%", maxHeight: "400px", margin: "auto"}}
               rows="20" 
             >
 
@@ -114,12 +115,12 @@ function App() {
               <button onClick={generateText}>Generate</button>
               <button onClick={() => {navigator.clipboard.writeText(banner)}}><FaRegCopy/></button>
             </div>
-            <select>
-              <option>5 - Incredible!</option>
-              <option>4 - Great!</option>
-              <option selected>3 - Pretty good</option>
-              <option>2 - Not so great</option>
-              <option>1 - Unfortunate</option>
+            <select value={selectedFont} onChange={e => setSelectedFont(e.target.value)}>
+              {
+                fonts.map((font, key) => (
+                  <option key={key} value={key}>{font.name}</option>
+                ))
+              }
             </select>
           </div>
         </div>
